@@ -1,1 +1,1 @@
-module.exports = [require("./public.route"), require("./home.route")]
+module.exports = [require("./public.route"), require("./assets.route"), require("./home.route")]
