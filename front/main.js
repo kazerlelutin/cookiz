@@ -1,4 +1,5 @@
-import "../public/style.css"
+import "./statics/style.css"
+import "./statics/_hyperscript.min.js"
 
 import { kll } from "../libs/kll.js"
 ;(async () => {
