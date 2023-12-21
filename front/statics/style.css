@@ -32,8 +32,21 @@
 
 body {
   font-family: Inter-Regular;
-  background-color: #000000;
   color: theme("colors.cookiz.text");
   height: 100dvh;
   @apply bg-gradient-to-bl to-60%  from-slate-800 to-black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: theme("colors.cookiz.text");
+    @apply bg-gradient-to-bl to-60%  from-slate-800 to-black;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: theme("colors.cookiz.text");
+    @apply bg-gradient-to-bl to-60%  from-slate-800 to-black;
+  }
 }

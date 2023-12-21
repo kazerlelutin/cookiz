@@ -2,6 +2,7 @@ import { cookieCmd } from "./cookie.cmd"
 import { factoryCmd } from "./factory.cmd"
 import { secretCmd } from "./secret.cmd"
 import { templateCmd } from "./template.cmd"
+import { translateCmd } from "./translate.cmd"
 
 function injectPage(path) {
   const routes = document.querySelector("#app").routes
@@ -40,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _hyperscript.addCommand("cookie", cookieCmd)
 
   _hyperscript.addCommand("secret", secretCmd)
+  _hyperscript.addCommand("translate", translateCmd)
 })
 
 /**

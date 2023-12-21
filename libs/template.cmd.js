@@ -1,3 +1,5 @@
+import { translate } from "../utils/translate"
+
 export function templateCmd(parser, runtime, tokens) {
   if (!tokens.matchToken("template")) return null
 
@@ -33,6 +35,7 @@ export function templateCmd(parser, runtime, tokens) {
         slot.outerHTML = children
       }
 
+      translate(container)
       element.replaceWith(container.firstElementChild)
 
       _hyperscript.processNode(document.querySelector("#app"))

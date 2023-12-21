@@ -42,7 +42,7 @@ export function factoryCmd(_parser, runtime, tokens) {
 
       setInterval(() => {
         if (el.count === 0) return
-        document.title = `${el.count} cookies - COOKIZ`
+        document.title = `${el.count} cookies - COOKIZE`
 
         saveFactory({
           c: el.count,
