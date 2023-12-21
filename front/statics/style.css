@@ -35,5 +35,5 @@ body {
   background-color: #000000;
   color: theme("colors.cookiz.text");
   height: 100dvh;
-  @apply bg-gradient-to-bl from-slate-950 to-black;
+  @apply bg-gradient-to-bl to-60%  from-slate-800 to-black;
 }
