@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "FjallaOne";
+  src: url("/api/public/fonts/FjallaOne-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("/api/public/fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("/api/public/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  src: url("/api/public/fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  font-family: Inter-Regular;
+  background-color: #000000;
+  color: theme("colors.cookiz.text");
+  height: 100dvh;
+  @apply bg-gradient-to-bl from-slate-950 to-black;
+}
