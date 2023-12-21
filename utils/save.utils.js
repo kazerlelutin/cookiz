@@ -10,7 +10,7 @@ export function getFactory() {
     : {
         c: 0,
         m: 0,
-        cm: 1,
+        cm: 0,
         s: [],
       }
 
