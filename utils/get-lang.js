@@ -13,7 +13,8 @@ export function getLang() {
   const lang = navigator.language || navigator.userLanguage
   const langShort = lang.split("-")[0]
   localStorage.setItem(key, langShort)
-  return langShort
+
+  return langShort.match(/fr|en|pt|it|es|de|ru/) ? langShort : "en"
 }
 
 /**
