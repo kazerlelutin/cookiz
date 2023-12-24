@@ -40,7 +40,23 @@ export function factoryCmd(_parser, runtime, tokens) {
 
       const updateTitleAndSave = async () => {
         if (el.state.count === 0) return
-        document.title = `${el.state.count} cookies - COOKIZE`
+        const isMillion = el.state.count >= 1000000
+        const isBillion = el.state.count >= 1000000000
+        const isTrillion = el.state.count >= 1000000000000
+        const isQuadrillion = el.state.count >= 1000000000000000
+
+        const text = `cookies - COOKIZE`
+        if (isQuadrillion) {
+          document.title = `${(el.state.count / 1000000000000000).toFixed(2)} quadrillion ${text}`
+        } else if (isTrillion) {
+          document.title = `${(el.state.count / 1000000000000).toFixed(2)} trillion ${text}`
+        } else if (isBillion) {
+          document.title = `${(el.state.count / 1000000000).toFixed(2)} billion ${text}`
+        } else if (isMillion) {
+          document.title = `${(el.state.count / 1000000).toFixed(2)} million ${text}`
+        } else {
+          document.title = `${el.state.count} ${text}`
+        }
 
         saveFactory({
           c: el.state.count,

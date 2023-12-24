@@ -1,9 +1,9 @@
 import { buyCmd } from "./buy.cmd"
 import { cookieCmd } from "./cookie.cmd"
 import { factoryCmd } from "./factory.cmd"
+import { recipesCmd } from "./recipes.cmd"
 import { secretCmd } from "./secret.cmd"
 import { shopCmd } from "./shop.cmd"
-import { getStateCmd } from "./state.cmd"
 import { templateCmd } from "./template.cmd"
 import { toggleDrawerCmd } from "./toogle-drawer.cmd"
 import { translateCmd } from "./translate.cmd"
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
   _hyperscript.addCommand("secret", secretCmd)
   _hyperscript.addCommand("translate", translateCmd)
   _hyperscript.addCommand("toogleDrawer", toggleDrawerCmd)
-  _hyperscript.addCommand("getState", getStateCmd)
   _hyperscript.addCommand("shop", shopCmd)
   _hyperscript.addCommand("buy", buyCmd)
+  _hyperscript.addCommand("recipes", recipesCmd)
 })
 
 /**

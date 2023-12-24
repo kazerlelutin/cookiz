@@ -152,4 +152,22 @@ export const translation = {
     de: "Mehl",
     ru: "Мука",
   },
+  chip_chocolate: {
+    en: "Chocolate chips",
+    fr: "Pépites de chocolat",
+    pt: "Gotas de chocolate",
+    it: "Gocce di cioccolato",
+    es: "Chips de chocolate",
+    de: "Schokoladenchips",
+    ru: "Шоколадные чипсы",
+  },
+  recipes: {
+    en: "Recipes",
+    fr: "Recettes",
+    pt: "Receitas",
+    it: "Ricette",
+    es: "Recetas",
+    de: "Rezepte",
+    ru: "Рецепты",
+  },
 }

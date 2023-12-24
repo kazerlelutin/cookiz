@@ -9,4 +9,9 @@ export const shopFoodItems = [
     price: 500000,
     img: "/statics/food/egg.webp",
   },
+  {
+    name: "chip_chocolate",
+    price: 6000,
+    img: "/statics/food/chip_chocolate.webp",
+  },
 ]
