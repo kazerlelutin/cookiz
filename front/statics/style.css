@@ -30,6 +30,13 @@
   font-style: normal;
 }
 
+* {
+  box-sizing: border-box;
+  scrollbar-color: theme("colors.cookiz.margin") theme("colors.black");
+  scrollbar-width: thin;
+  outline: none;
+}
+
 body {
   font-family: Inter-Regular;
   color: theme("colors.cookiz.text");
@@ -49,4 +56,17 @@ body {
     color: theme("colors.cookiz.text");
     @apply bg-gradient-to-bl to-60%  from-slate-800 to-black;
   }
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme("colors.black");
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme("colors.cookiz.margin");
+  transition: 200ms ease-in-out;
 }

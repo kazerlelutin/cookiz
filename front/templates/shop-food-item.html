@@ -1,0 +1,35 @@
+<template id="shop-food-item">
+  <button _="on load 
+    put me.state.item.price into first <div [data-price] /> in me
+    put me.state.item.name into first <div [data-name] /> in me
+    set me.querySelector('[data-img]') @src to me.state.item.img
+    set me.querySelector('[data-img]') @alt to me.state.item.name
+    put me.state.item.possessed into first <div [data-possessed] /> in me
+    
+    on click buy end
+    " class="border border-dashed border-cookiz-tile p-2 rounded-sm cursor-pointer">
+
+    <div class="flex flex-wrap gap-6 items-center justify-between ">
+      <div class="flex gap-2 items-center">
+        <img data-img class="fill-white" src='' width="20" height="20" />
+        <div data-name class="first-letter:uppercase font-InterBold"></div>
+      </div>
+
+      <div class=" flex gap-1 items-center">
+        <div>🍪</div>
+        <div data-price></div>
+      </div>
+
+    </div>
+    <div class="flex justify-between items-center gap-3 flex-wrap">
+      <div data-description class="text-cookiz-margin text-xs" data-trans="food_desc">
+
+      </div>
+      <div class="text-sm italic text-end text-cookiz-tile">
+        <span data-trans="possessed"></span>:
+        <span data-possessed class="font-InterBold"></span>
+      </div>
+    </div>
+
+  </button>
+</template>

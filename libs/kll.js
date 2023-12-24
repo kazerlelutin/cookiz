@@ -1,7 +1,11 @@
+import { buyCmd } from "./buy.cmd"
 import { cookieCmd } from "./cookie.cmd"
 import { factoryCmd } from "./factory.cmd"
 import { secretCmd } from "./secret.cmd"
+import { shopCmd } from "./shop.cmd"
+import { getStateCmd } from "./state.cmd"
 import { templateCmd } from "./template.cmd"
+import { toggleDrawerCmd } from "./toogle-drawer.cmd"
 import { translateCmd } from "./translate.cmd"
 
 function injectPage(path) {
@@ -17,6 +21,16 @@ function injectPage(path) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // === DRAWERS ========================================
+  document.addEventListener("click", function (event) {
+    const drawers = document.querySelectorAll("[data-drawer='true']")
+    drawers.forEach((drawer) => {
+      const _hyp = event.target.getAttribute("_") || ""
+      if (!drawer.contains(event.target) && !_hyp.match(/toogleDrawer/)) {
+        drawer.style.transform = "translateX(100%)"
+      }
+    })
+  })
   // === COMMANDES ========================================
 
   _hyperscript.addCommand("navigate", (parser, runtime, tokens) => {
@@ -35,13 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   _hyperscript.addCommand("template", templateCmd)
-
   _hyperscript.addCommand("factory", factoryCmd)
-
   _hyperscript.addCommand("cookie", cookieCmd)
-
   _hyperscript.addCommand("secret", secretCmd)
   _hyperscript.addCommand("translate", translateCmd)
+  _hyperscript.addCommand("toogleDrawer", toggleDrawerCmd)
+  _hyperscript.addCommand("getState", getStateCmd)
+  _hyperscript.addCommand("shop", shopCmd)
+  _hyperscript.addCommand("buy", buyCmd)
 })
 
 /**
