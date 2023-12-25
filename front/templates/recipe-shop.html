@@ -1,0 +1,37 @@
+<template id="recipe-shop">
+  <button class="border border-dashed border-cookiz-tile p-2 rounded-sm cursor-pointer flex flex-col gap-2"
+    _=" on click log 'ici on unlock' end" data-recipe>
+
+
+    <div _="on load 
+        set :parent to closest <button/>
+        set :recipe to  :parent.state.recipe
+        put :recipe.name into first <div [data-name] /> in me
+        set me.querySelector('[data-img]') @src to :recipe.img
+        set me.querySelector('[data-img]') @alt to :recipe.name
+
+        if :recipe.isUnlock is false
+        set :ht to ``
+        for ingredient in :recipe.ingredients
+          set :ht to `${:ht}${ingredient}`
+        end
+        put :ht into  the next <div [data-ingredients] />
+        end
+        end
+      ">
+
+      <div class="flex flex-wrap gap-6 items-center justify-between">
+        <div class="flex gap-2 items-center">
+          <img data-img class="fill-white" src='' width="20" height="20" />
+          <div data-name class="first-letter:uppercase font-InterBold"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex justify-between items-center gap-3 flex-wrap text-white text-sm italic" data-ingredients
+      data-trans="recipe_shop_unlocked">
+    </div>
+
+  </button>
+</template>

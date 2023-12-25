@@ -1,0 +1,29 @@
+<template id="recipe-item">
+  <div _="on load 
+    put me.state.item.name into first <div [data-name] /> in me
+    put me.state.item.img into first <div [data-img] /> in me
+    set me.querySelector('[data-img]') @src to me.state.item.img
+    set me.querySelector('[data-img]') @alt to me.state.item.name
+    put me.state.item.possessed into first <div [data-possessed] /> in me
+    put me.state.item.quantity into first <div [data-quantity] /> in me
+    set @data-ingredient to me.state.item.name
+    if me.state.item.quantity > me.state.item.possessed
+      set me @class to 'opacity-75'
+    end
+    end
+    " class="rounded-md cursor-pointer text-xs border border-slate-800 p-1 not-italic">
+
+    <div class="flex gap-3 items-center justify-between ">
+      <div class="flex gap-2 items-center">
+        <img data-img class="fill-white" src='' width="15" height="15" />
+        <div data-name class="first-letter:uppercase"></div>
+      </div>
+      <div class=" flex gap-1 items-center">
+        <span data-possessed></span>
+        /
+        <span data-quantity></span>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>

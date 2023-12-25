@@ -22,14 +22,12 @@ export function shopCmd(_parser, runtime, tokens) {
 
       Object.keys(shop).forEach((key) => {
         const { name } = shop[key]
-        // Increment this each time we see a shop item
-        if (!shopFactory[name]) shopFactory[name] = 1
+        if (!shopFactory[name]) shopFactory[name] = 0
       })
 
       Object.keys(shopFoodItems).forEach((key) => {
         const { name } = shopFoodItems[key]
-        // Increment this each time we see a shop item
-        if (!shopFood[name]) shopFood[name] = 1
+        if (!shopFood[name]) shopFood[name] = 0
       })
 
       shop.forEach((item) => {
@@ -59,8 +57,6 @@ export function shopCmd(_parser, runtime, tokens) {
         const price = getPrice(item.price, possessed, 2.3)
         const element = document.createElement("div")
         element.setAttribute("_", `on load template 'shop-food-item'`)
-
-        const imgEl = element.querySelector("[data-img]")
 
         list.appendChild(
           setState(element, "item", {

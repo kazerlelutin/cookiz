@@ -6,7 +6,6 @@ export function translateCmd(_parser, runtime, tokens) {
   return {
     async op() {
       translate()
-
       return runtime.findNext(this)
     },
   }

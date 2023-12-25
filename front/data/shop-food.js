@@ -1,8 +1,18 @@
 export const shopFoodItems = [
   {
+    name: "sugar",
+    price: 3000,
+    img: "/statics/food/sugar.webp",
+  },
+  {
     name: "flour",
     price: 5000,
     img: "/statics/food/flour.webp",
+  },
+  {
+    name: "butter",
+    price: 7000,
+    img: "/statics/food/butter.webp",
   },
   {
     name: "egg",

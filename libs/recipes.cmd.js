@@ -1,5 +1,8 @@
 import { recipes } from "../front/data/recipes"
-import { shopFoodItems } from "../front/data/shop-food"
+import { createRecipeIngredientEl } from "../utils/createRecipeIngredientEl"
+import { setState } from "../utils/parse-state"
+import { getFactory } from "../utils/save.utils"
+import { translateStr } from "../utils/translate"
 
 export function recipesCmd(_parser, runtime, tokens) {
   if (!tokens.matchToken("recipes")) return null
@@ -7,30 +10,36 @@ export function recipesCmd(_parser, runtime, tokens) {
   return {
     async op(ctx) {
       const el = ctx.me
-      console.log(el.state)
 
       const list = document.createElement("div")
+
       // On charge les recettes comme le shop
 
+      const factory = getFactory()
+      const unlock = factory.u || []
+
       recipes.forEach((recipe) => {
-        const element = document.createElement("div")
+        const recipeEl = document.createElement("div")
+        const isUnlock = unlock.includes(recipe.name)
 
-        recipe.ingredients.forEach((ingredient) => {
-          const { name } = ingredient
-          const shopItem = shopFoodItems.find((item) => item.name === name)
-          if (!shopItem) return
-          const el = document.createElement("div")
-          // element.setAttribute("_", `on load template 'recipe-item'`)
-          el.innerHTML = `test`
-          //TODO inserer dans la liste., juste icones et prix (quantity)
-        })
+        recipeEl.setAttribute("_", `on load template 'recipe-shop'`)
 
-        element.innerHTML = recipe.name
-        list.appendChild(element)
+        // -- On charge les ingredients
+
+        const state = {
+          originalName: recipe.name,
+          img: recipe.img,
+          name: translateStr(recipe.name),
+          isUnlock,
+          ingredients: recipe.ingredients.map(createRecipeIngredientEl).filter((ing) => ing !== ""),
+        }
+
+        list.appendChild(setState(recipeEl, "recipe", state))
+
+        // -------
       })
-      // Recupérer les imgages via shopfood
-
       el.replaceWith(list)
+
       return runtime.findNext(this)
     },
   }

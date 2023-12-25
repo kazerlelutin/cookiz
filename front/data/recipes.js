@@ -1,10 +1,10 @@
 export const recipes = [
   {
-    name: "chocolate-chip-cookies",
-    img: "https://placehold.co/200",
+    name: "chocolate_chip_cookies",
+    img: "/statics/cookie.webp",
     ingredients: [
       { name: "chocolate-chips", quantity: 200, unit: "gr" },
-      { name: "egg", quantity: 1, unit: "" },
+      { name: "egg", quantity: 2 /* TODO 1 */, unit: "" },
       { name: "sugar", quantity: 50, unit: "gr" },
       { name: "soft-butter", quantity: 70, unit: "gr" },
       { name: "flour", quantity: 140, unit: "gr" },

@@ -12,6 +12,9 @@ export function getFactory() {
         m: 0,
         cm: 0,
         s: [],
+        sh: {},
+        sf: {},
+        u: [],
       }
 
   return lsDecode

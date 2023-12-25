@@ -2,6 +2,7 @@ import { shop } from "../front/data/shop"
 import { shopFoodItems } from "../front/data/shop-food"
 import { disabledShopItem } from "../utils/disabled-shop-item"
 import { getPrice } from "../utils/get-price"
+import { refreshComponents } from "../utils/refresh-components"
 import { getFactory, saveFactory } from "../utils/save.utils"
 import { updateCounter } from "./cookie.cmd"
 import { updateCookieMultiplier, updateMultiplier } from "./secret.cmd"
@@ -45,8 +46,8 @@ export function buyCmd(_parser, runtime, tokens) {
 
       if (itemCm) cookie.state.clickMultiplier = newCm
       if (itemM) cookie.state.multiplier = newM
-      if (factory.sh[item.originalName]) factory.sh[item.originalName] = newItemCount
-      if (factory.sf[item.originalName]) factory.sf[item.originalName] = newItemCount
+      if (factory.sh?.[item.originalName] >= 0) factory.sh[item.originalName] = newItemCount
+      if (factory.sf?.[item.originalName] >= 0) factory.sf[item.originalName] = newItemCount
 
       cookie.state.count = newCount
 
@@ -59,6 +60,7 @@ export function buyCmd(_parser, runtime, tokens) {
         cm: newCm,
         m: newM,
         sh: factory.sh,
+        sf: factory.sf,
       })
 
       const priceEl = el.querySelector("[data-price")
@@ -67,6 +69,10 @@ export function buyCmd(_parser, runtime, tokens) {
       priceEl.innerText = el.state.item.price
       possessedEl.innerText = el.state.item.possessed
       disabledShopItem()
+
+      // refresh recipes
+
+      refreshComponents("unlock")
       return runtime.findNext(this)
     },
   }
