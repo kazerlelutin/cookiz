@@ -1,10 +1,7 @@
 import { shop } from "../front/data/shop"
 import { shopFoodItems } from "../front/data/shop-food"
-import { disabledShopItem } from "../utils/disabled-shop-item"
 import { getPrice } from "../utils/get-price"
-import { refreshComponents } from "../utils/refresh-components"
-import { getFactory, saveFactory } from "../utils/save.utils"
-import { updateCounter } from "./cookie.cmd"
+import { getStore, saveFactory } from "../utils/save.utils"
 import { updateCookieMultiplier, updateMultiplier } from "./secret.cmd"
 
 export function buyCmd(_parser, runtime, tokens) {
@@ -14,9 +11,9 @@ export function buyCmd(_parser, runtime, tokens) {
     async op(ctx) {
       const el = ctx.me
       const cookie = document.querySelector("#cookie")
-      const factory = getFactory()
+      const store = getStore()
 
-      if (!cookie || !cookie?.state || !factory || !factory.sh || !factory.sf)
+      if (!cookie || !cookie?.state || !store || !store.sh || !store.sf)
         return runtime.findNext(this)
 
       const count = cookie.state.count ?? 0
@@ -46,12 +43,20 @@ export function buyCmd(_parser, runtime, tokens) {
 
       if (itemCm) cookie.state.clickMultiplier = newCm
       if (itemM) cookie.state.multiplier = newM
-      if (factory.sh?.[item.originalName] >= 0) factory.sh[item.originalName] = newItemCount
-      if (factory.sf?.[item.originalName] >= 0) factory.sf[item.originalName] = newItemCount
+      if (store.sh?.[item.originalName] >= 0) {
+        store.sh = {
+          ...store.sh,
+          [item.originalName]: newItemCount,
+        }
+      }
+      if (store.sf?.[item.originalName] >= 0) {
+        store.sf = {
+          ...store.sf,
+          [item.originalName]: newItemCount,
+        }
+      }
 
       cookie.state.count = newCount
-
-      updateCounter(newCount)
       updateCookieMultiplier(newCm)
       updateMultiplier(newM)
 
@@ -59,8 +64,8 @@ export function buyCmd(_parser, runtime, tokens) {
         c: newCount,
         cm: newCm,
         m: newM,
-        sh: factory.sh,
-        sf: factory.sf,
+        sh: store.sh,
+        sf: store.sf,
       })
 
       const priceEl = el.querySelector("[data-price")
@@ -68,11 +73,7 @@ export function buyCmd(_parser, runtime, tokens) {
 
       priceEl.innerText = el.state.item.price
       possessedEl.innerText = el.state.item.possessed
-      disabledShopItem()
 
-      // refresh recipes
-
-      refreshComponents("unlock")
       return runtime.findNext(this)
     },
   }

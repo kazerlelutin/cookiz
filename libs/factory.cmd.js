@@ -1,6 +1,4 @@
-import { disabledShopItem } from "../utils/disabled-shop-item"
-import { getFactory, saveFactory } from "../utils/save.utils"
-import { updateCounter } from "./cookie.cmd"
+import { getFactory, saveFactory, getStore } from "../utils/save.utils"
 import { updateCookieMultiplier, updateMultiplier } from "./secret.cmd"
 
 export function factoryCmd(_parser, runtime, tokens) {
@@ -9,8 +7,19 @@ export function factoryCmd(_parser, runtime, tokens) {
   return {
     async op(ctx) {
       const el = ctx.me
-      if (!el.state) el.state = {}
+      if (!el.state)
+        el.state = new Proxy(
+          {},
+          {
+            set(target, key, value) {
+              target[key] = value
+              return true
+            },
+          }
+        )
+
       const factory = getFactory()
+      const store = getStore()
 
       const secretsEl = document.querySelectorAll("[_*='on click secret']")
 
@@ -63,15 +72,17 @@ export function factoryCmd(_parser, runtime, tokens) {
           cm: el.state.clickMultiplier,
           m: el.state.multiplier,
         })
+
+        store.cm = el.state.clickMultiplier
+        store.m = el.state.multiplier
       }
 
       let tick = 0
       const cron = setInterval(() => {
         // Update count every 10 ticks (1s)
         if (tick % 10 === 0) {
-          updateCounter(el.state.count)
           updateCount()
-          disabledShopItem()
+          store.c = el.state.count
         }
 
         // Update title every 50 ticks (5s)

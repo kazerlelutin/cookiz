@@ -46,7 +46,7 @@ export function templateCmd(parser, runtime, tokens) {
       }
 
       translate(container)
-      container.firstElementChild.setAttribute("data-component", templateName)
+      container.firstElementChild.templateName = templateName
       element.replaceWith(container.firstElementChild)
       _hyperscript.processNode(document.querySelector("#app"))
       return runtime.findNext(this)

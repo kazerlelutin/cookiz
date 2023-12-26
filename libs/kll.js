@@ -1,5 +1,7 @@
+import { getFactory } from "../utils/save.utils"
 import { buyCmd } from "./buy.cmd"
 import { cookieCmd } from "./cookie.cmd"
+import { cookizeCmd } from "./cookize.cmd"
 import { factoryCmd } from "./factory.cmd"
 import { recipesCmd } from "./recipes.cmd"
 import { secretCmd } from "./secret.cmd"
@@ -7,6 +9,7 @@ import { shopCmd } from "./shop.cmd"
 import { templateCmd } from "./template.cmd"
 import { toggleDrawerCmd } from "./toogle-drawer.cmd"
 import { translateCmd } from "./translate.cmd"
+import { disabledShopItem } from "../utils/disabled-shop-item"
 
 function injectPage(path) {
   const routes = document.querySelector("#app").routes
@@ -31,6 +34,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
+
+  const app = document.querySelector("#app")
+
+  //TODO poàuvoir ajouter des entrées dans le proxy en mode libs
+  app.store = new Proxy(
+    { ...getFactory() },
+    {
+      set(target, key, value) {
+        target[key] = value
+
+        if (key === "c") {
+          //TODO try to make a good func
+          disabledShopItem()
+        }
+
+        const components = document.querySelectorAll(`[data-bind="${key}"]`)
+        components.forEach((component) => {
+          //prevent the scintillement
+          const div = document.createElement("div")
+          div.setAttribute("_", `on init template '${component.templateName}'`)
+          component.appendChild(div)
+          _hyperscript.processNode(component.parentElement)
+        })
+        return true
+      },
+    }
+  )
   // === COMMANDES ========================================
 
   _hyperscript.addCommand("navigate", (parser, runtime, tokens) => {
@@ -51,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _hyperscript.addCommand("template", templateCmd)
   _hyperscript.addCommand("factory", factoryCmd)
   _hyperscript.addCommand("cookie", cookieCmd)
+  _hyperscript.addCommand("cookize", cookizeCmd)
   _hyperscript.addCommand("secret", secretCmd)
   _hyperscript.addCommand("translate", translateCmd)
   _hyperscript.addCommand("toogleDrawer", toggleDrawerCmd)

@@ -2,6 +2,11 @@ import { getBase64FromText, getTextFromBase64 } from "./convert-base64.utils"
 
 const LS_KEY = "cookize_factory"
 
+export function getStore() {
+  const appElement = document.querySelector("#app")
+  return appElement?.store
+}
+
 export function getFactory() {
   const ls = localStorage.getItem(LS_KEY)
 
@@ -15,6 +20,9 @@ export function getFactory() {
         sh: {},
         sf: {},
         u: [],
+        sfl: 0,
+        shl: 0,
+        ul: 0,
       }
 
   return lsDecode
@@ -26,6 +34,7 @@ export function saveFactory(factory) {
     ...save,
     ...factory,
   }
+
   const saveEncode = getBase64FromText(JSON.stringify(factoryToSave))
   localStorage.setItem(LS_KEY, saveEncode)
 }

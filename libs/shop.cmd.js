@@ -2,7 +2,7 @@ import { shop } from "../front/data/shop"
 import { shopFoodItems } from "../front/data/shop-food"
 import { getPrice } from "../utils/get-price"
 import { setState } from "../utils/parse-state"
-import { getFactory, saveFactory } from "../utils/save.utils"
+import { getFactory, getStore, saveFactory } from "../utils/save.utils"
 import { translateStr } from "../utils/translate"
 
 export function shopCmd(_parser, runtime, tokens) {
@@ -52,9 +52,10 @@ export function shopCmd(_parser, runtime, tokens) {
         )
       })
 
+      const store = getStore()
       shopFoodItems.forEach((item) => {
         const possessed = shopFood[item.name]
-        const price = getPrice(item.price, possessed, 2.3)
+        const price = getPrice(item.price, possessed, 1.07)
         const element = document.createElement("div")
         element.setAttribute("_", `on load template 'shop-food-item'`)
 
@@ -65,9 +66,16 @@ export function shopCmd(_parser, runtime, tokens) {
             name: translateStr(item.name),
             price: String(price).replace(/\B(?=(\d{3})+(?!\d))/g, " "),
             possessed,
+            disabled: price > store.c,
           })
         )
       })
+
+      el.state = {
+        ...el.state,
+        shopFactory,
+        shopFood,
+      }
 
       saveFactory({ sh: shopFactory, sf: shopFood })
       el.replaceWith(list)
