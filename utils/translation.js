@@ -341,4 +341,13 @@ export const translation = {
     de: "Schokoladenchips",
     ru: "Шоколадные чипсы",
   },
+  bowl: {
+    en: "Bowl",
+    fr: "Bol",
+    pt: "Tigela",
+    it: "Ciotola",
+    es: "Tazón",
+    de: "Schüssel",
+    ru: "Миска",
+  },
 }
