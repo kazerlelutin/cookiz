@@ -50,9 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const components = document.querySelectorAll(`[data-bind="${key}"]`)
       components.forEach((component) => {
         //prevent the scintillement
-        const div = document.createElement("div")
-        div.setAttribute("_", `on init template '${component.templateName}'`)
-        component.appendChild(div)
+        const div = document.createElement(component.tagName)
+        div.setAttribute("_", `on load template '${component.templateName}'`)
+
+        //TODO analyse if it's a good idea to replace the component or not
+        if (component.templateName.match(/unlock/)) {
+          component.parentElement.replaceChild(div, component)
+        } else {
+          component.appendChild(div)
+        }
+
         _hyperscript.processNode(component.parentElement)
       })
       return true

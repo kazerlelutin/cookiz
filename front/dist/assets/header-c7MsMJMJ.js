@@ -1,7 +1,7 @@
 const e=`<template id="header">\r
-  <header class="flex p-2 justify-between items-center">\r
-    <div class="text-slate-500 cursor-pointer" _="on click secret 'kll'">_KLL</div>\r
-    <nav class="self-end flex gap-2">\r
+  <header class="flex p-2 justify-between items-center flex-wrap gap-2 sm:text-base text-xs">\r
+    <div class="text-slate-500 cursor-pointer" _="on click secret 'kll' end">_KLL</div>\r
+    <nav class=" flex gap-2 items-center">\r
       <a _="on click navigate '/' end" data-trans="home">Home</a>\r
       <a data-trans="about" href="#">About</a>\r
       <a href="https://bouteiller.contact" target="_blank" data-trans="contact" rel="noopener">Contact</a>\r

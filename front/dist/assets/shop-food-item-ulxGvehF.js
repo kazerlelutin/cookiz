@@ -11,7 +11,7 @@ const e=`<template id="shop-food-item">\r
     on click buy end\r
     " class="border border-dashed border-cookiz-tile p-2 rounded-sm cursor-pointer">\r
 \r
-    <div class="flex flex-wrap gap-6 items-center justify-between ">\r
+    <div class="flex flex-wrap gap-2 items-center justify-between ">\r
       <div class="flex gap-2 items-center">\r
         <img data-img class="fill-white" src='' width="20" height="20" />\r
         <div data-name class="first-letter:uppercase font-InterBold"></div>\r

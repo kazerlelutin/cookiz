@@ -332,4 +332,13 @@ export const translation = {
     de: "Backpulver",
     ru: "Разрыхлитель",
   },
+  chocolate_chips: {
+    en: "Chocolate chips",
+    fr: "Pépites de chocolat",
+    pt: "Gotas de chocolate",
+    it: "Gocce di cioccolato",
+    es: "Chips de chocolate",
+    de: "Schokoladenchips",
+    ru: "Шоколадные чипсы",
+  },
 }

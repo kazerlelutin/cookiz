@@ -1,6 +1,6 @@
 const t=`<template id="drawer">\r
   <nav\r
-    class="fixed top-0 bottom-0 right-0 transition-transform duration-200 mw-[30dvw] bg-black z-50 pl-5 pr-5 pb-5  overflow-y-auto"\r
+    class="fixed top-0 bottom-0 right-0 transition-transform duration-200 md:max-w-[40dvw] bg-black z-50 pl-5 pr-5 pb-5  overflow-y-auto"\r
     style="transform: translateX(100%);" data-drawer='true'>\r
     <div class="mb-2 flex justify-between gap-2  py-2 border-b border-b-slate-900 sticky top-0 bg-black">\r
       <button _="\r

@@ -29,7 +29,7 @@ const e=`<template id="recipe-shop">\r
 \r
     </div>\r
 \r
-    <div class="flex justify-between items-center gap-3 flex-wrap text-white text-sm italic" data-ingredients\r
+    <div class="flex items-center gap-3 flex-wrap text-white text-sm italic" data-ingredients\r
       data-trans="recipe_shop_unlocked">\r
     </div>\r
 \r
