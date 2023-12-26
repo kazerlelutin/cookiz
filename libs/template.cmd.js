@@ -6,8 +6,6 @@ export function templateCmd(parser, runtime, tokens) {
 
   const expr = parser.requireElement("expression", tokens)
 
-  console.log("templateCmd", expr)
-
   return {
     args: [expr],
     async op(ctx, templateName) {
