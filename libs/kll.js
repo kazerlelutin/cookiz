@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _hyperscript.addCommand("template", templateCmd)
   _hyperscript.addCommand("factory", factoryCmd)
   _hyperscript.addCommand("cookie", cookieCmd)
-  _hyperscript.addCommand("cookize", cookizeCmd)
+  _hyperscript.addCommand("getCookize", cookizeCmd)
   _hyperscript.addCommand("secret", secretCmd)
   _hyperscript.addCommand("translate", translateCmd)
   _hyperscript.addCommand("toogleDrawer", toggleDrawerCmd)
