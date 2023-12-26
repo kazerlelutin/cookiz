@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const components = document.querySelectorAll(`[data-bind="${key}"]`)
         components.forEach((component) => {
           //prevent the scintillement
-          const div = document.createElement(component.tagName)
+          const div = document.createElement("div")
           div.setAttribute("_", `on init template '${component.templateName}'`)
-          component.innerHTML = div.innerHTML
+          component.appendChild(div)
           _hyperscript.processNode(component.parentElement)
         })
         return true

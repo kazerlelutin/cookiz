@@ -9,6 +9,7 @@ export function templateCmd(parser, runtime, tokens) {
   return {
     args: [expr],
     async op(ctx, templateName) {
+      if (!templateName) return runtime.findNext(this)
       // Load template
       const raw = await import(`../front/templates/${templateName}.html?raw`)
       const el = document.createElement("div")
