@@ -18,7 +18,6 @@ function injectPage(path) {
   if (page) {
     const appElement = document.querySelector("#app")
     appElement.innerHTML = page
-
     // Appeler _hyperscript.processNode sur le nouveau contenu
     _hyperscript.processNode(appElement)
   }
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const div = document.createElement("div")
           div.setAttribute("_", `on init template '${component.templateName}'`)
           component.appendChild(div)
-          _hyperscript.processNode(component.parentElement)
+          _hyperscript.processNode(document.querySelector("#app"))
         })
         return true
       },
@@ -74,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       async op(_ctx, url) {
         window.history.pushState({}, "", url)
         injectPage(url)
+
         return runtime.findNext(this)
       },
     }
