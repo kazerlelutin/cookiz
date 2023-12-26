@@ -5,7 +5,7 @@ const e=`<template id="header">\r
       <a _="on click navigate '/' end" data-trans="home">Home</a>\r
       <a data-trans="about" href="#">About</a>\r
       <a href="https://bouteiller.contact" target="_blank" data-trans="contact" rel="noopener">Contact</a>\r
-      <div data-trans="pricing">Pricing</div>\r
+      <br _="on load template \`pricing-btn\` end" />\r
     </nav>\r
     <button _="on click secret \`sign\` end" data-trans="sign_in"\r
       class="rounded-full border-white border px-3 py-1 transition-all duration-100 hover:bg-white hover:text-black ">\r

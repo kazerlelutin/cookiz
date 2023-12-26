@@ -10,6 +10,7 @@ import { templateCmd } from "./template.cmd"
 import { toggleDrawerCmd } from "./toogle-drawer.cmd"
 import { translateCmd } from "./translate.cmd"
 import { disabledShopItem } from "../utils/disabled-shop-item"
+import { recipeCmd } from "./recipe.cmd"
 
 function injectPage(path) {
   const routes = document.querySelector("#app").routes
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   _hyperscript.addCommand("shop", shopCmd)
   _hyperscript.addCommand("buy", buyCmd)
   _hyperscript.addCommand("recipes", recipesCmd)
+  _hyperscript.addCommand("recipe", recipeCmd)
 })
 
 /**

@@ -70,3 +70,11 @@ body {
   background: theme("colors.cookiz.margin");
   transition: 200ms ease-in-out;
 }
+
+dialog {
+  @apply bg-black border border-cookiz-tile text-white;
+}
+
+dialog::backdrop {
+  @apply bg-black opacity-75;
+}
