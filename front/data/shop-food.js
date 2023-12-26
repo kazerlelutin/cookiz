@@ -6,12 +6,12 @@ export const shopFoodItems = [
   },
   {
     name: "flour",
-    price: 5000,
+    price: 1000,
     img: "/statics/food/flour.webp",
   },
   {
     name: "butter",
-    price: 7000,
+    price: 2000,
     img: "/statics/food/butter.webp",
   },
   {
