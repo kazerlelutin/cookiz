@@ -14,6 +14,13 @@ export const shop = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M217.6 128c-15.4 37.3-56.9 64-105.6 64C50.1 192 0 149 0 96S50.1 0 112 0c48.8 0 90.3 26.7 105.6 64H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H217.6z"/><path class="fa-primary" d="M33.6 224C15.4 224 .9 239.3 2 257.5c5.4 91.7 59.7 169.7 136.4 209.7l1.2 9.7c2.5 20 19.5 35 39.7 35H332.7c20.2 0 37.2-15 39.7-35l1.2-9.7c76.8-40 131-118 136.4-209.7c1.1-18.2-13.4-33.5-31.6-33.5H33.6z"/></svg>`,
   },
   {
+    name: "knife",
+    price: 10000,
+    clickMultiplier: 15,
+    secMultiplier: 0,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M273.3 222.7L262 211.4l-11.3 11.3-246 246c-3.9 3.9-5.5 9.6-4.3 15s5.3 9.8 10.5 11.5L16 480c-5.1 15.2-5.1 15.2-5.1 15.2l0 0 0 0 0 0 .1 0 .5 .2c.4 .1 1 .3 1.8 .6c1.5 .5 3.7 1.1 6.5 1.9c5.5 1.6 13.3 3.7 22.7 5.7c18.6 4.1 43.9 8.4 69.5 8.4c123.3 0 209.4-62.8 287.3-140.7c6.2-6.2 6.2-16.4 0-22.6l-126-126z"/><path class="fa-primary" d="M463 10.3C469.7 3.7 478.6 0 488 0s18.3 3.7 25 10.3L557.7 55c6.6 6.6 10.3 15.6 10.3 25s-3.7 18.3-10.3 25l-97 97c-3 3-4.7 7.1-4.7 11.3v31.9c0 17.4-9.4 33.5-24.7 42L375.8 318l-4.6 2.6-97.9-97.9L262 211.4l6.7-6.7L463 10.3zM448 144a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm48-48a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>`,
+  },
+  {
     name: "food_processor",
     price: 3000,
     clickMultiplier: 0,
@@ -22,9 +29,16 @@ export const shop = [
   },
   {
     name: "furnace",
+    price: 5000,
+    clickMultiplier: 0,
+    secMultiplier: 2,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M448 160v32H0V160H448zM64 256H384V448H64V256zm32 48c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16s-7.2-16-16-16H112c-8.8 0-16 7.2-16 16z"/><path class="fa-primary" d="M96 0H352c53 0 96 43 96 96v64H0V96C0 43 43 0 96 0zM80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM200 80a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zm72 24a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM392 80a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM64 256l0 192H384V256H64zM0 192H64 384h64v64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256 192z"/></svg>`,
+  },
+  {
+    name: "microwave",
     price: 15000,
     clickMultiplier: 0,
     secMultiplier: 15,
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M448 160v32H0V160H448zM64 256H384V448H64V256zm32 48c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16s-7.2-16-16-16H112c-8.8 0-16 7.2-16 16z"/><path class="fa-primary" d="M96 0H352c53 0 96 43 96 96v64H0V96C0 43 43 0 96 0zM80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM200 80a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zm72 24a24 24 0 1 0 0-48 24 24 0 1 0 0 48zM392 80a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM64 256l0 192H384V256H64zM0 192H64 384h64v64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256 192z"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M120 128c-13.3 0-24 10.7-24 24V328c0 13.3 10.7 24 24 24H392c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24H120z"/><path class="fa-primary" d="M0 96C0 60.7 28.7 32 64 32H512c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64c0 17.7-14.3 32-32 32s-32-14.3-32-32H128c0 17.7-14.3 32-32 32s-32-14.3-32-32c-35.3 0-64-28.7-64-64V96zm96 56V328c0 13.3 10.7 24 24 24H392c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24H120c-13.3 0-24 10.7-24 24zm400-40c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16s16-7.2 16-16V128c0-8.8-7.2-16-16-16z"/></svg>`,
   },
 ]

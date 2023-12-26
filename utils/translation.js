@@ -350,4 +350,22 @@ export const translation = {
     de: "Schüssel",
     ru: "Миска",
   },
+  microwave: {
+    en: "Microwave",
+    fr: "Micro-ondes",
+    pt: "Microondas",
+    it: "Forno a microonde",
+    es: "Microonda",
+    de: "Mikrowelle",
+    ru: "Микроволновая печь",
+  },
+  knife: {
+    en: "Knife",
+    fr: "Couteau",
+    pt: "Faca",
+    it: "Coltello",
+    es: "Cuchillo",
+    de: "Messer",
+    ru: "Нож",
+  },
 }
