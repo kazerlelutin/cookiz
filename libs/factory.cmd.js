@@ -42,11 +42,6 @@ export function factoryCmd(_parser, runtime, tokens) {
       updateCookieMultiplier(factory.cm)
       updateMultiplier(el.state.multiplier)
 
-      const updateCount = async () => {
-        if (el.state.count === 0) return
-        el.state.count = el.state.count + 1 * el.state.multiplier
-      }
-
       const updateTitleAndSave = async () => {
         if (el.state.count === 0) return
         const isMillion = el.state.count >= 1000000
@@ -72,16 +67,14 @@ export function factoryCmd(_parser, runtime, tokens) {
           cm: el.state.clickMultiplier,
           m: el.state.multiplier,
         })
-
-        store.cm = el.state.clickMultiplier
-        store.m = el.state.multiplier
       }
 
       let tick = 0
       const cron = setInterval(() => {
         // Update count every 10 ticks (1s)
         if (tick % 10 === 0) {
-          updateCount()
+          if (el.state.count === 0) return
+          el.state.count = el.state.count + 1 * el.state.multiplier
           store.c = el.state.count
         }
 

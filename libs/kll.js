@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   app.store = new Proxy(
     { ...getFactory() },
     {
-      set(target, key, value) {
+      async set(target, key, value) {
         target[key] = value
 
         if (key === "c") {
