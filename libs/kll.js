@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
         //TODO analyse if it's a good idea to replace the component or not
         if (component.templateName.match(/unlock/)) {
           component.parentElement.replaceChild(div, component)
+          _hyperscript.processNode(component)
         } else {
           component.appendChild(div)
+          _hyperscript.processNode(component.parentElement)
         }
-
-        _hyperscript.processNode(component.parentElement)
       })
       return true
     },
