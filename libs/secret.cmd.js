@@ -1,4 +1,4 @@
-import { getFactory, saveFactory } from "../utils/save.utils"
+import { getStore, saveFactory } from "../utils/save.utils"
 
 export function updateMultiplier(multiplier) {
   const multipeEl = document.querySelector("#multiplier")
@@ -23,51 +23,50 @@ export function secretCmd(parser, runtime, tokens) {
 
       if (!el.state) el.state = {}
 
-      const factory = getFactory()
+      const store = getStore()
 
-      const isAlready = factory.s.includes(name)
+      const isAlready = store.s.includes(name)
 
       if (el.state.disabled || isAlready) return runtime.findNext(this)
-      const cookie = document.querySelector("#cookie")
       const audioEl = document.querySelector("#coin-audio")
 
-      if (!cookie || !audioEl) return runtime.findNext(this)
+      if (!audioEl) return runtime.findNext(this)
       audioEl.currentTime = 0
       audioEl.volume = 0.5
       audioEl.play()
 
       // === per Second ===========================
       if (name === "sign") {
-        cookie.state.multiplier = cookie.state.multiplier + 5
+        store.m = store.m + 5
       }
 
       if (name === "doc") {
-        cookie.state.multiplier = cookie.state.multiplier + 4
+        store.m = store.m + 4
       }
 
-      updateMultiplier(cookie.state.multiplier)
+      updateMultiplier(store.m)
       // === per Click ============================
 
-      const oldMulti = cookie.state.clickMultiplier === 1 ? 0 : cookie.state.clickMultiplier
+      const oldMulti = store.cm === 1 ? 0 : store.cm
 
       if (name === "get-started") {
-        cookie.state.clickMultiplier = oldMulti + 5
+        store.cm = oldMulti + 5
       }
 
       if (name === "kll") {
-        cookie.state.clickMultiplier = oldMulti + 10
+        store.cm = oldMulti + 10
       }
 
-      updateCookieMultiplier(cookie.state.clickMultiplier)
+      updateCookieMultiplier(store.cm)
 
       el.state.disabled = true
       el.style.opacity = 0.5
 
-      factory.cm = cookie.state.clickMultiplier
-      factory.m = cookie.state.multiplier
-      factory.s = [...factory.s, name]
+      store.cm = store.cm
+      store.m = store.m
+      store.s = [...store.s, name]
 
-      saveFactory(factory)
+      saveFactory(store)
 
       // === RETURN ===========================
       return runtime.findNext(this)

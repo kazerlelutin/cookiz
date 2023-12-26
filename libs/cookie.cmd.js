@@ -18,8 +18,8 @@ export function cookieCmd(_parser, runtime, tokens) {
         el.style.transform = "scale(1)"
       }, 50)
 
-      const { c, cm } = store
-      store.c = c + 1 * cm
+      const cm = store.cm === 0 ? 1 : store.cm
+      store.c += 1 * cm
       return runtime.findNext(this)
     },
   }

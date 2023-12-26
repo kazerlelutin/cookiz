@@ -10,13 +10,10 @@ export function buyCmd(_parser, runtime, tokens) {
   return {
     async op(ctx) {
       const el = ctx.me
-      const cookie = document.querySelector("#cookie")
+
       const store = getStore()
 
-      if (!cookie || !cookie?.state || !store || !store.sh || !store.sf)
-        return runtime.findNext(this)
-
-      const count = cookie.state.count ?? 0
+      const count = store.c
 
       const item = el.state.item
       const shopItem = [...shop, ...shopFoodItems].find((s) => s.name === item.originalName)
@@ -26,12 +23,11 @@ export function buyCmd(_parser, runtime, tokens) {
       if (!price) return runtime.findNext(this)
       if (count < price) return runtime.findNext(this)
 
-      const { multiplier, clickMultiplier } = cookie.state
       const { clickMultiplier: itemCm, secMultiplier: itemM } = item
 
       const newItemCount = item.possessed + 1
-      const newM = multiplier + (itemM ?? 0)
-      const newCm = clickMultiplier + (itemCm ?? 0)
+      const newM = store.m + (itemM ?? 0)
+      const newCm = store.cm + (itemCm ?? 0)
       const newCount = count - price
       const newPrice = getPrice(shopItem.price, newItemCount)
 
@@ -41,8 +37,8 @@ export function buyCmd(_parser, runtime, tokens) {
         price: String(newPrice).replace(/\B(?=(\d{3})+(?!\d))/g, " "),
       }
 
-      if (itemCm) cookie.state.clickMultiplier = newCm
-      if (itemM) cookie.state.multiplier = newM
+      if (itemCm) store.cm = newCm
+      if (itemM) store.m = newM
       if (store.sh?.[item.originalName] >= 0) {
         store.sh = {
           ...store.sh,
@@ -56,7 +52,7 @@ export function buyCmd(_parser, runtime, tokens) {
         }
       }
 
-      cookie.state.count = newCount
+      store.c = newCount
       updateCookieMultiplier(newCm)
       updateMultiplier(newM)
 

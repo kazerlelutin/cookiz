@@ -1,4 +1,4 @@
-import { getFactory, saveFactory, getStore } from "../utils/save.utils"
+import { getStore, saveFactory } from "../utils/save.utils"
 import { updateCookieMultiplier, updateMultiplier } from "./secret.cmd"
 
 export function factoryCmd(_parser, runtime, tokens) {
@@ -7,18 +7,6 @@ export function factoryCmd(_parser, runtime, tokens) {
   return {
     async op(ctx) {
       const el = ctx.me
-      if (!el.state)
-        el.state = new Proxy(
-          {},
-          {
-            set(target, key, value) {
-              target[key] = value
-              return true
-            },
-          }
-        )
-
-      const factory = getFactory()
       const store = getStore()
 
       const secretsEl = document.querySelectorAll("[_*='on click secret']")
@@ -27,7 +15,7 @@ export function factoryCmd(_parser, runtime, tokens) {
         const _hyp = secretEl.getAttribute("_")
         const _hypSplit = _hyp.replace(/[\s'`]/g, "").replace(/onclicksecret|end/g, "")
 
-        const find = factory.s.includes(_hypSplit)
+        const find = store.s.includes(_hypSplit)
 
         if (!find) return
         if (!secretEl.state) secretEl.state = {}
@@ -35,37 +23,38 @@ export function factoryCmd(_parser, runtime, tokens) {
         secretEl.style.opacity = 0.5
       })
 
-      el.state.count = factory.c
-      el.state.multiplier = factory.m
-      el.state.clickMultiplier = factory.cm
+      updateCookieMultiplier(store.cm)
+      updateMultiplier(store.m)
 
-      updateCookieMultiplier(factory.cm)
-      updateMultiplier(el.state.multiplier)
+      const updateCount = async () => {
+        if (store.m === 0 && store.c === 0) return
+        store.c = store.c + 1 * store.m
+      }
 
       const updateTitleAndSave = async () => {
-        if (el.state.count === 0) return
-        const isMillion = el.state.count >= 1000000
-        const isBillion = el.state.count >= 1000000000
-        const isTrillion = el.state.count >= 1000000000000
-        const isQuadrillion = el.state.count >= 1000000000000000
+        if (store.c === 0) return
+        const isMillion = store.c >= 1000000
+        const isBillion = store.c >= 1000000000
+        const isTrillion = store.c >= 1000000000000
+        const isQuadrillion = store.c >= 1000000000000000
 
         const text = `cookies - COOKIZE`
         if (isQuadrillion) {
-          document.title = `${(el.state.count / 1000000000000000).toFixed(2)} quadrillion ${text}`
+          document.title = `${(store.c / 1000000000000000).toFixed(2)} quadrillion ${text}`
         } else if (isTrillion) {
-          document.title = `${(el.state.count / 1000000000000).toFixed(2)} trillion ${text}`
+          document.title = `${(store.c / 1000000000000).toFixed(2)} trillion ${text}`
         } else if (isBillion) {
-          document.title = `${(el.state.count / 1000000000).toFixed(2)} billion ${text}`
+          document.title = `${(store.c / 1000000000).toFixed(2)} billion ${text}`
         } else if (isMillion) {
-          document.title = `${(el.state.count / 1000000).toFixed(2)} million ${text}`
+          document.title = `${(store.c / 1000000).toFixed(2)} million ${text}`
         } else {
-          document.title = `${el.state.count} ${text}`
+          document.title = `${store.c} ${text}`
         }
 
         saveFactory({
-          c: el.state.count,
-          cm: el.state.clickMultiplier,
-          m: el.state.multiplier,
+          c: store.c,
+          cm: store.cm,
+          m: store.m,
         })
       }
 
@@ -73,9 +62,7 @@ export function factoryCmd(_parser, runtime, tokens) {
       const cron = setInterval(() => {
         // Update count every 10 ticks (1s)
         if (tick % 10 === 0) {
-          if (el.state.count === 0) return
-          el.state.count = el.state.count + 1 * el.state.multiplier
-          store.c = el.state.count
+          updateCount()
         }
 
         // Update title every 50 ticks (5s)
