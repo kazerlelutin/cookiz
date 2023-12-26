@@ -2,7 +2,7 @@ import { shop } from "../front/data/shop"
 import { shopFoodItems } from "../front/data/shop-food"
 import { getPrice } from "../utils/get-price"
 import { setState } from "../utils/parse-state"
-import { getFactory, getStore, saveFactory } from "../utils/save.utils"
+import { getStore, saveFactory } from "../utils/save.utils"
 import { translateStr } from "../utils/translate"
 
 export function shopCmd(_parser, runtime, tokens) {
@@ -16,9 +16,9 @@ export function shopCmd(_parser, runtime, tokens) {
 
       list.classList.add("flex", "flex-col", "gap-2")
 
-      const factory = getFactory()
-      const shopFactory = factory.sh || {}
-      const shopFood = factory.sf || {}
+      const store = getStore()
+      const shopFactory = store.sh || {}
+      const shopFood = store.sf || {}
 
       Object.keys(shop).forEach((key) => {
         const { name } = shop[key]
@@ -32,7 +32,9 @@ export function shopCmd(_parser, runtime, tokens) {
 
       shop.forEach((item) => {
         const possessed = shopFactory[item.name]
-        const price = getPrice(item.price, possessed)
+        // keep all prices in memory
+        if (!store.p?.[item.name]) store.p[item.name] = 0
+        const price = getPrice(item.price, store.p[item.name])
         const element = document.createElement("div")
         element.setAttribute("_", `on load template 'shop-item'`)
 
@@ -52,10 +54,14 @@ export function shopCmd(_parser, runtime, tokens) {
         )
       })
 
-      const store = getStore()
       shopFoodItems.forEach((item) => {
         const possessed = shopFood[item.name]
-        const price = getPrice(item.price, possessed, 1.07)
+
+        // keep all prices in memory
+        if (!store.p?.[item.name]) store.p[item.name] = 0
+
+        const price = getPrice(item.price, store.p[item.name])
+
         const element = document.createElement("div")
         element.setAttribute("_", `on load template 'shop-food-item'`)
 
@@ -77,7 +83,7 @@ export function shopCmd(_parser, runtime, tokens) {
         shopFood,
       }
 
-      saveFactory({ sh: shopFactory, sf: shopFood })
+      saveFactory({ sh: shopFactory, sf: shopFood, p: store.p })
       el.replaceWith(list)
       return runtime.findNext(this)
     },

@@ -25,11 +25,16 @@ export function buyCmd(_parser, runtime, tokens) {
 
       const { clickMultiplier: itemCm, secMultiplier: itemM } = item
 
+      if (store.p?.[item.originalName] === undefined) store.p[item.originalName] = 0
       const newItemCount = item.possessed + 1
+      store.p = {
+        ...store.p,
+        [item.originalName]: store.p[item.originalName] + 1,
+      }
       const newM = store.m + (itemM ?? 0)
       const newCm = store.cm + (itemCm ?? 0)
       const newCount = count - price
-      const newPrice = getPrice(shopItem.price, newItemCount)
+      const newPrice = getPrice(shopItem.price, store.p?.[item.originalName])
 
       el.state.item = {
         ...item,
@@ -62,10 +67,11 @@ export function buyCmd(_parser, runtime, tokens) {
         m: newM,
         sh: store.sh,
         sf: store.sf,
+        p: store.p,
       })
 
-      const priceEl = el.querySelector("[data-price")
-      const possessedEl = el.querySelector("[data-possessed")
+      const priceEl = el.querySelector("[data-price]")
+      const possessedEl = el.querySelector("[data-possessed]")
 
       priceEl.innerText = el.state.item.price
       possessedEl.innerText = el.state.item.possessed

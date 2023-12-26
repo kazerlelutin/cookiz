@@ -7,6 +7,6 @@
  * @returns {Number} - the price of the item
  */
 export function getPrice(base, num, baseRate) {
-  const rate = baseRate || 1.15
+  const rate = baseRate || 1.08
   return Math.round(base * Math.pow(rate, num))
 }

@@ -3,12 +3,12 @@ export const recipes = [
     name: "chocolate_chip_cookies",
     img: "/statics/cookie.webp",
     ingredients: [
-      { name: "chocolate-chips", quantity: 200, unit: "gr" },
+      { name: "chocolate_chips", quantity: 200, unit: "gr" },
       { name: "egg", quantity: 1, unit: "" },
       { name: "sugar", quantity: 50, unit: "gr" },
-      { name: "soft-butter", quantity: 70, unit: "gr" },
+      { name: "butter", quantity: 70, unit: "gr" },
       { name: "flour", quantity: 140, unit: "gr" },
-      { name: "baking-powder", quantity: 1, unit: "packet" },
+      { name: "baking_powder", quantity: 1, unit: "packet" },
     ],
     steps: [
       {

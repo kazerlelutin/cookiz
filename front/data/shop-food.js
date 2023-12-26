@@ -16,12 +16,17 @@ export const shopFoodItems = [
   },
   {
     name: "egg",
-    price: 500000,
+    price: 50000,
     img: "/statics/food/egg.webp",
   },
   {
-    name: "chip_chocolate",
+    name: "chocolate_chips",
     price: 6000,
     img: "/statics/food/chip_chocolate.webp",
+  },
+  {
+    name: "baking_powder",
+    price: 10000,
+    img: "/statics/food/baking_powder.webp",
   },
 ]

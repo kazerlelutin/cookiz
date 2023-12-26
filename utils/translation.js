@@ -323,4 +323,13 @@ export const translation = {
     de: "Bei 200°C 12 Minuten backen",
     ru: "Выпекать при 200°C в течение 12 минут",
   },
+  baking_powder: {
+    en: "Baking powder",
+    fr: "Levure",
+    pt: "Fermento",
+    it: "Lievito",
+    es: "Polvo de hornear",
+    de: "Backpulver",
+    ru: "Разрыхлитель",
+  },
 }
