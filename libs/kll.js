@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         components.forEach((component) => {
           //prevent the scintillement
           const div = document.createElement("div")
-          div.setAttribute("_", `on init template '${component.templateName}'`)
+          div.setAttribute("_", `on load template '${component.templateName}'`)
           component.appendChild(div)
           _hyperscript.processNode(component.parentElement)
         })

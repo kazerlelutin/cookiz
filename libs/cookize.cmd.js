@@ -1,7 +1,9 @@
 import { getStore } from "../utils/save.utils"
-export function cookizeCmd(_parser, runtime, tokens) {
+export function cookizeCmd(parser, runtime, tokens) {
   if (!tokens.matchToken("getCookize")) return null
+  const expr = parser.requireElement("expression", tokens)
   return {
+    args: [expr],
     async op(ctx) {
       const el = ctx.me
       const store = getStore()
