@@ -2,7 +2,7 @@ import { getStore } from "../utils/save.utils"
 export function cookizeCmd(_parser, runtime, tokens) {
   if (!tokens.matchToken("cookize")) return null
   return {
-    args: [],
+    args: [""],
     async op(ctx) {
       const el = ctx.me
       const store = getStore()
