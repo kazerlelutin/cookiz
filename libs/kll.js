@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const components = document.querySelectorAll(`[data-bind="${key}"]`)
         components.forEach((component) => {
           //prevent the scintillement
+          component.removeAttribute("_")
           const div = document.createElement("div")
           div.setAttribute("_", `on load template '${component.templateName}'`)
           component.appendChild(div)
