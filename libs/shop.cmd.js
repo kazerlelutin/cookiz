@@ -50,6 +50,7 @@ export function shopCmd(_parser, runtime, tokens) {
             price: String(price).replace(/\B(?=(\d{3})+(?!\d))/g, " "),
             possessed,
             description,
+            disabled: price > store.c,
           })
         )
       })

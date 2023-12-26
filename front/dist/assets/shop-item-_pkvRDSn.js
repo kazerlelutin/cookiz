@@ -1,5 +1,7 @@
-const t=`<template id="shop-item">\r
+const e=`<template id="shop-item">\r
   <button _="on load \r
+    set @disabled to me.state.item.disabled\r
+    if @disabled is equal 'true' set *opacity to 0.5 end\r
     put me.state.item.price into first <div [data-price] /> in me\r
     put me.state.item.name into first <div [data-name] /> in me\r
     put me.state.item.icon into first <div [data-icon] /> in me\r
@@ -32,4 +34,4 @@ const t=`<template id="shop-item">\r
     </div>\r
 \r
   </button>\r
-</template>`;export{t as default};
+</template>`;export{e as default};

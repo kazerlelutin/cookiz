@@ -1,5 +1,7 @@
 <template id="shop-item">
   <button _="on load 
+    set @disabled to me.state.item.disabled
+    if @disabled is equal 'true' set *opacity to 0.5 end
     put me.state.item.price into first <div [data-price] /> in me
     put me.state.item.name into first <div [data-name] /> in me
     put me.state.item.icon into first <div [data-icon] /> in me
