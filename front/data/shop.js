@@ -21,6 +21,13 @@ export const shop = [
     icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M273.3 222.7L262 211.4l-11.3 11.3-246 246c-3.9 3.9-5.5 9.6-4.3 15s5.3 9.8 10.5 11.5L16 480c-5.1 15.2-5.1 15.2-5.1 15.2l0 0 0 0 0 0 .1 0 .5 .2c.4 .1 1 .3 1.8 .6c1.5 .5 3.7 1.1 6.5 1.9c5.5 1.6 13.3 3.7 22.7 5.7c18.6 4.1 43.9 8.4 69.5 8.4c123.3 0 209.4-62.8 287.3-140.7c6.2-6.2 6.2-16.4 0-22.6l-126-126z"/><path class="fa-primary" d="M463 10.3C469.7 3.7 478.6 0 488 0s18.3 3.7 25 10.3L557.7 55c6.6 6.6 10.3 15.6 10.3 25s-3.7 18.3-10.3 25l-97 97c-3 3-4.7 7.1-4.7 11.3v31.9c0 17.4-9.4 33.5-24.7 42L375.8 318l-4.6 2.6-97.9-97.9L262 211.4l6.7-6.7L463 10.3zM448 144a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm48-48a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>`,
   },
   {
+    name: "brigade",
+    price: 100000,
+    clickMultiplier: 1000,
+    secMultiplier: 0,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M128 160a64 64 0 1 0 0-128 64 64 0 1 0 0 128zM48 304c0-16.2 6-31.1 16-42.3v84.7C54 335 48 320.2 48 304zm112 0c0-37.8 14.6-72.2 38.4-97.9c-16.1-9-34.7-14.1-54.4-14.1H112C50.1 192 0 242.1 0 304c0 44.7 26.2 83.2 64 101.2V448c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V405.2 394.5c-20-24.7-32-56.2-32-90.5zM448 405.2V448c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V405.2c37.8-18 64-56.5 64-101.2c0-61.9-50.1-112-112-112H496c-19.7 0-38.3 5.1-54.4 14.1C465.4 231.8 480 266.2 480 304c0 34.3-12 65.8-32 90.5v10.7zM512 160a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm80 144c0 16.2-6 31-16 42.3V261.7c10 11.3 16 26.1 16 42.3z"/><path class="fa-primary" d="M384 96A64 64 0 1 0 256 96a64 64 0 1 0 128 0zM256 261.7v84.7c-10-11.3-16-26.1-16-42.3s6-31.1 16-42.3zm128 84.7V261.7c10 11.3 16 26.1 16 42.3s-6 31-16 42.3zm0 58.9c37.8-18 64-56.5 64-101.2c0-61.9-50.1-112-112-112H304c-61.9 0-112 50.1-112 112c0 44.7 26.2 83.2 64 101.2V448c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V405.2z"/></svg>`,
+  },
+  {
     name: "food_processor",
     price: 3000,
     clickMultiplier: 0,
@@ -40,5 +47,12 @@ export const shop = [
     clickMultiplier: 0,
     secMultiplier: 15,
     icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M120 128c-13.3 0-24 10.7-24 24V328c0 13.3 10.7 24 24 24H392c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24H120z"/><path class="fa-primary" d="M0 96C0 60.7 28.7 32 64 32H512c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64c0 17.7-14.3 32-32 32s-32-14.3-32-32H128c0 17.7-14.3 32-32 32s-32-14.3-32-32c-35.3 0-64-28.7-64-64V96zm96 56V328c0 13.3 10.7 24 24 24H392c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24H120c-13.3 0-24 10.7-24 24zm400-40c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16s16-7.2 16-16V128c0-8.8-7.2-16-16-16z"/></svg>`,
+  },
+  {
+    name: "chief",
+    price: 150000,
+    clickMultiplier: 0,
+    secMultiplier: 500,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.--><path class="fa-secondary" opacity=".4" d="M96 160H352c0 70.7-57.3 128-128 128s-128-57.3-128-128z"/><path class="fa-primary" d="M384 48c0 20.9-13.4 38.7-32 45.3V112v48H320 304 144 128 96V112 93.3C77.4 86.7 64 68.9 64 48C64 21.5 85.5 0 112 0c14.3 0 27.2 6.3 36 16.3C156.8 6.3 169.7 0 184 0c16.7 0 31.4 8.5 40 21.5C232.6 8.5 247.3 0 264 0c14.3 0 27.2 6.3 36 16.3C308.8 6.3 321.7 0 336 0c26.5 0 48 21.5 48 48zM178.4 340.6c7.5 1.9 8.2 12.3 1 15.2l-43.2 17.3C111.9 382.8 96 406.3 96 432.5V480v24 8H88 64 25.6C11.5 512 0 500.5 0 486.4c0-58.8 37.7-108.8 90.3-127c3.3-1.2 5.7-4.3 5.7-7.8V330.2c0-5.2 4.9-9 9.9-7.8l72.5 18.1zM352 512H160 136h-8v-8V480 432.5c0-13.1 8-24.9 20.1-29.7L341 325.6c5.3-2.1 11 1.8 11 7.4v18.6c0 3.5 2.3 6.6 5.7 7.8c52.6 18.2 90.3 68.2 90.3 127c0 14.1-11.5 25.6-25.6 25.6H352zM224 432a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm80 16a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>`,
   },
 ]

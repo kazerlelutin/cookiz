@@ -368,4 +368,22 @@ export const translation = {
     de: "Messer",
     ru: "Нож",
   },
+  chief: {
+    en: "Chief",
+    fr: "Chef",
+    pt: "Chefe",
+    it: "Capo",
+    es: "Jefe",
+    de: "Chef",
+    ru: "Шеф",
+  },
+  brigade: {
+    en: "Brigade",
+    fr: "Brigade",
+    pt: "Brigada",
+    it: "Brigata",
+    es: "Brigada",
+    de: "Brigade",
+    ru: "Бригада",
+  },
 }
